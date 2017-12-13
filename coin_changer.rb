@@ -1,23 +1,23 @@
-def get_change(cents_received)
-	coins_returned = {}
-	coins = {"quarter" => 25, "dime" => 10, "nickel" => 5, "penny" => 1}
-	
-	puts "Amount given is #{cents_received}"
-	amount_given = cents_received
+def get_change()
 
+	puts "How much change do you need? (enter a number and hit Return)"
+  amount = Integer(gets.chomp)
 
-coins.each do |coin, value|
-	if cents_received >= 0
-		coins_returned[coin] = cents_received / value
-		cents_received = cents_received - coin[value]
-	end
-	coins_returned
-	
+	change = {"dollar" => 100, "quarter" => 25, "dime" => 10, "nickel" => 5, "penny" => 1}
+  returned_change = {"dollar" => 0, "quarter" => 0, "dime" => 0, "nickel" => 0, "penny" => 0}
+
+  change.each do |key, value|
+
+    while amount >= value
+      amount = amount - value
+      returned_change[key] = returned_change[key] + 1
+    end
+
+  end
+
+    puts "Your returned change is #{returned_change['dollar']} dollars and #{returned_change['quarter']} quarters 
+    and #{returned_change['dime']} dimes and #{returned_change['nickel']} nickels and #{returned_change['penny']} pennies"
+
 end
 
-puts "#{amount_given} amounts to #{coins_returned[quarter]} quarters and #{coins_returned[dime]} dimes
-and #{coins_returned[nickel]} nickels and #{coins_returned[penny]} pennies"
-
-end
-
-get_change(66)
+get_change()
