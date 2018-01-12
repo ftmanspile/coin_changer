@@ -1,7 +1,7 @@
-def get_change()
+def get_change(amount)
 
-	puts "How much change do you need? (enter a number and hit Return)"
-  amount = Integer(gets.chomp)
+	# puts "How much change do you need? (enter a number and hit Return)"
+  # amount = Integer(gets.chomp)
 
 	change = {"dollar" => 100, "quarter" => 25, "dime" => 10, "nickel" => 5, "penny" => 1}
   returned_change = {"dollar" => 0, "quarter" => 0, "dime" => 0, "nickel" => 0, "penny" => 0}
@@ -14,10 +14,10 @@ def get_change()
     end
 
   end
-
-    puts "Your returned change is #{returned_change['dollar']} dollars and #{returned_change['quarter']} quarters 
-    and #{returned_change['dime']} dimes and #{returned_change['nickel']} nickels and #{returned_change['penny']} pennies"
+    $dollars = returned_change['dollar']
+    $quarter =returned_change['quarter']
+    puts "Your returned change is #{returned_change['dollar']} dollars #{returned_change['quarter']} quarters #{returned_change['dime']} dimes #{returned_change['nickel']} nickels and #{returned_change['penny']} pennies."
 
 end
 
-get_change()
+# get_change()
